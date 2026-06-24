@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.apischool.com/</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.apischool.com/</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.apischool.com/private-pilot.html</loc><lastmod>2026-06-24</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.apischool.com/instrument-rating.html</loc><lastmod>2026-06-24</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.apischool.com/commercial-pilot.html</loc><lastmod>2026-06-24</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.apischool.com/flight-instructor.html</loc><lastmod>2026-06-24</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.apischool.com/method.html</loc><lastmod>2026-06-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.apischool.com/about.html</loc><lastmod>2026-06-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.apischool.com/faq.html</loc><lastmod>2026-06-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.apischool.com/contact.html</loc><lastmod>2026-06-24</lastmod><priority>0.8</priority></url>
 </urlset>
