@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>API &mdash; Learn to Fly at Chicago Midway | Aviation Professionals Inc.</title>
 <meta name="description" content="Aviation Professionals Inc. (API), Chicago Midway Airport since 1973. Private, Instrument, Commercial and Flight Instructor training. Call 773-284-5678.">
+<link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -44,7 +45,7 @@ nav.top a.navlink:hover,nav.top a.navlink.active{color:var(--marking)}
 /* HOME HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:130px 0 94px;overflow:hidden;background:#04101F}
 .hero-sky{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#04101F 0%,#081E36 30%,#103251 50%,#B5713A 78%,#2A160B 100%)}
-.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;z-index:1;filter:brightness(1.08) contrast(1.02) saturate(1.05)}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 56%;z-index:1;filter:brightness(1.05) contrast(1.02) saturate(1.05)}
 .hero::before{content:"";position:absolute;inset:0;z-index:2;
   background:linear-gradient(180deg,rgba(3,10,20,.55) 0%,rgba(3,10,20,0) 22%,rgba(3,10,20,0) 48%,rgba(3,10,20,.74) 100%),
   linear-gradient(95deg,rgba(3,10,20,.48) 0%,rgba(3,10,20,.14) 42%,rgba(3,10,20,0) 72%)}
@@ -212,6 +213,7 @@ form.lead .fsub{color:var(--steel-dim);font-size:.88rem;margin-bottom:24px}
 footer{background:var(--tarmac);border-top:1px solid var(--line);padding:44px 0 110px}
 .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
 footer .mark{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.4rem;color:var(--marking);text-decoration:none}
+.foot-logo{width:128px;height:auto;background:#fff;border-radius:12px;padding:11px 13px;margin-bottom:16px;display:inline-block;box-shadow:0 10px 24px rgba(0,0,0,.35)}
 footer .mark span{color:var(--horizon)}
 footer .tag{color:var(--steel-dim);font-size:.82rem;margin-top:8px;max-width:280px}
 footer nav{display:flex;gap:26px;flex-wrap:wrap}
@@ -321,7 +323,7 @@ html.js .reveal.in{opacity:1;transform:none}
       <rect x="186" y="160" width="4" height="5" opacity=".4"/><rect x="710" y="150" width="4" height="5" opacity=".4"/><rect x="942" y="170" width="4" height="5" opacity=".35"/><rect x="1066" y="150" width="4" height="5" opacity=".4"/>
     </g>
   </svg>
-  <img class="hero-photo" src="/img/hero.jpg" alt="Aerial view of the Chicago skyline at dusk">
+  <img class="hero-photo" src="/img/hero.jpg" alt="Aviation Professionals' ramp at Chicago Midway at sunset, the Chicago skyline on the horizon">
   <div class="wrap"><div class="hero-inner">
     <div class="eyebrow">Chicago Midway Airport &middot; Est. 1973</div>
     <h1>The Chicago skyline is your <em>first classroom.</em></h1>
@@ -461,13 +463,13 @@ html.js .reveal.in{opacity:1;transform:none}
         <div class="fact"><div class="k">To finish</div><div class="v">2<small>Written + checkride</small></div></div>
       </div>
     </div>
-    <div class="reveal"><figure class="photo"><img src="/img/wing.jpg" alt="View of Chicago from the wing of a Cessna on a training flight"></figure></div>
+    <div class="reveal"><figure class="photo"><img src="/img/window.jpg" alt="Chicago Midway Airport under fresh snow at dusk, seen from the air" loading="lazy"></figure></div>
   </div></div>
 </section>
 
 <section class="psec alt" id="instrument">
   <div class="wrap"><div class="att-grid">
-    <div class="reveal"><figure class="photo"><img src="/img/panel.jpg" alt="Cessna instrument panel with the attitude indicator and full six-pack"></figure></div>
+    <div class="reveal"><figure class="photo"><img src="/img/panel.jpg" alt="The six-pack in an API Cessna with the Midway ramp through the windshield" loading="lazy"></figure></div>
     <div class="reveal prose">
       <div class="eyebrow">Rating &middot; 02</div>
       <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);margin:14px 0 18px;">Instrument Rating</h2>
@@ -512,7 +514,7 @@ html.js .reveal.in{opacity:1;transform:none}
         <div class="fact"><div class="k">To finish</div><div class="v">Ride<small>The CFI checkride</small></div></div>
       </div>
     </div>
-    <div class="reveal"><figure class="photo"><img src="/img/instructor.jpg" alt="An API flight instructor briefing a student on an airport diagram"></figure></div>
+    <div class="reveal"><figure class="photo"><img src="/img/airline.jpg" alt="An airliner climbing through golden clouds at sunset" loading="lazy"></figure></div>
   </div></div>
 </section>
 
@@ -521,11 +523,15 @@ html.js .reveal.in{opacity:1;transform:none}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">From the ramp</div><h2>Life at the field.</h2><p>Real airplanes, real Midway airspace, real students. Tap any photo to take a closer look.</p></div>
     <div class="gal-grid reveal">
-      <div class="gal-item big" data-src="/img/ramp.jpg" data-cap="A Cessna trainer on the Midway ramp, airliners behind."><img src="/img/ramp.jpg" alt="Cessna on the Chicago Midway ramp with airliners"><span class="zoom">&#9906;</span><span class="cap">On the ramp at MDW</span></div>
-      <div class="gal-item" data-src="/img/panel.jpg" data-cap="A full six-pack panel — where Attitude Flying meets the instruments."><img src="/img/panel.jpg" alt="Cessna instrument panel"><span class="zoom">&#9906;</span><span class="cap">The six-pack</span></div>
-      <div class="gal-item" data-src="/img/instructor.jpg" data-cap="One instructor, one student — briefing the airport diagram."><img src="/img/instructor.jpg" alt="Instructor briefing a student"><span class="zoom">&#9906;</span><span class="cap">The brief</span></div>
-      <div class="gal-item" data-src="/img/hero.jpg" data-cap="The Chicago skyline at dusk — your first classroom."><img src="/img/hero.jpg" alt="Chicago skyline at dusk"><span class="zoom">&#9906;</span><span class="cap">Chicago at dusk</span></div>
-      <div class="gal-item" data-src="/img/wing.jpg" data-cap="Chicago off the wing on a training flight."><img src="/img/wing.jpg" alt="View of Chicago from the wing"><span class="zoom">&#9906;</span><span class="cap">Off the wing</span></div>
+      <div class="gal-item big" data-src="/img/skyline-night.jpg" data-cap="The Chicago skyline at night, lakefront and Loop lit up."><img src="/img/skyline-night.jpg" alt="Aerial of the Chicago skyline at night" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">Chicago, after dark</span></div>
+      <div class="gal-item" data-src="/img/ramp.jpg" data-cap="A 172 on the Midway ramp — tower and a Southwest jet behind."><img src="/img/ramp.jpg" alt="Cessna 172 on the Midway ramp with the tower and a Southwest jet" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">The same ramp as the airlines</span></div>
+      <div class="gal-item" data-src="/img/panel.jpg" data-cap="The six-pack in an API Cessna, Midway ramp through the glass."><img src="/img/panel.jpg" alt="API Cessna six-pack panel" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">The six-pack</span></div>
+      <div class="gal-item" data-src="/img/window.jpg" data-cap="Chicago Midway under fresh snow at dusk, from the air."><img src="/img/window.jpg" alt="Chicago Midway under snow from the air" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">Midway under snow</span></div>
+      <div class="gal-item" data-src="/img/skyline-sunset.jpg" data-cap="Sunset over the Loop and the lakefront."><img src="/img/skyline-sunset.jpg" alt="Chicago skyline at sunset from the air" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">Sunset over the Loop</span></div>
+      <div class="gal-item" data-src="/img/wing-sunset.jpg" data-cap="Chicago off the wing at golden hour."><img src="/img/wing-sunset.jpg" alt="Chicago off the wing at sunset" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">Off the wing</span></div>
+      <div class="gal-item" data-src="/img/oldtown-night.jpg" data-cap="City lights inbound over the North Side."><img src="/img/oldtown-night.jpg" alt="Chicago at night from the air" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">City lights inbound</span></div>
+      <div class="gal-item" data-src="/img/moon.jpg" data-cap="Moonrise over the western suburbs at night."><img src="/img/moon.jpg" alt="Moon over the Chicago suburbs at night from the air" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">Moonrise, westbound</span></div>
+      <div class="gal-item" data-src="/img/airline.jpg" data-cap="An airliner in golden clouds — where the training leads."><img src="/img/airline.jpg" alt="Airliner silhouetted in golden clouds" loading="lazy"><span class="zoom">&#9906;</span><span class="cap">The airline dream</span></div>
     </div>
   </div>
 </section>
@@ -607,7 +613,7 @@ html.js .reveal.in{opacity:1;transform:none}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><a href="#top" class="mark">A<span>P</span>I</a><div class="tag">Aviation Professionals Incorporated. Teaching Chicago to fly from Midway Airport since 1973.</div></div>
+      <div><a href="#top"><img src="/img/logo.png" alt="Aviation Professionals Inc. — the oldest flight school in Chicago" class="foot-logo" loading="lazy"></a><div class="tag">Aviation Professionals Incorporated. Teaching Chicago to fly from Midway Airport since 1973.</div></div>
       <nav><a href="#training">Training</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a><a href="tel:7732845678">773 284-5678</a></nav>
     </div>
     <div class="copyright">&copy; 1973&ndash;2026 Aviation Professionals Inc. &middot; Chicago Midway (MDW) &middot; 773 284-5678</div>
@@ -744,27 +750,4 @@ html.js .reveal.in{opacity:1;transform:none}
   var items=[].slice.call(document.querySelectorAll('.gal-item'));
   var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
   var i=0;
-  function open(n){i=(n+items.length)%items.length;var it=items[i];img.src=it.getAttribute('data-src');img.alt=it.querySelector('img').alt;cap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('show');}
-  function close(){lb.classList.remove('show');img.src='';}
-  items.forEach(function(it,n){it.addEventListener('click',function(){open(n);});});
-  document.getElementById('lbClose').addEventListener('click',close);
-  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();open(i+1);});
-  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();open(i-1);});
-  lb.addEventListener('click',function(e){if(e.target===lb)close();});
-  document.addEventListener('keydown',function(e){if(!lb.classList.contains('show'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(i+1);if(e.key==='ArrowLeft')open(i-1);});
-})();
-
-/* ---------- contact form (Web3Forms -> emails apimidway@gmail.com) ---------- */
-function submitLead(ev){
-  ev.preventDefault();
-  var form=ev.target,btn=document.getElementById('leadBtn'),err=document.getElementById('formErr');
-  err.style.display='none';
-  var key=form.querySelector('[name=access_key]').value;
-  var done=function(){form.style.display='none';var c=document.getElementById('confirm');if(c)c.classList.add('show');};
-  /* If key not yet set, don't hit the API with a bad key — still confirm for the visitor. */
-  if(!key||key.indexOf('PLACEHOLDER')>-1){done();return false;}
-  btn.disabled=true;btn.textContent='Sending…';
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-    body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))
-  }).then(function(r){return r.json();}
+  function open(n){i=(n+items.length)%items.length;var it=items[i];img
