@@ -88,7 +88,7 @@ nav.top a.navlink:hover,nav.top a.navlink.active{color:var(--marking)}
 /* SECTIONS */
 .section{padding:96px 0}
 .section.tight{padding:72px 0}
-.sec-head{max-width:660px;margin-bottom:50px}
+.sec-head{max-width:680px;margin:0 auto 50px;text-align:center}
 .sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 16px}
 .sec-head p{color:var(--steel);font-size:1.06rem}
 .prose{max-width:720px}
@@ -240,7 +240,8 @@ html.js .reveal.in{opacity:1;transform:none}
   .mobile-call{display:block}.call-btn{display:none}
   footer{padding-bottom:90px}
 }
-@media(max-width:520px){.wrap{padding:0 20px}.section{padding:70px 0}header{padding:14px 20px}.cta-band .inner{padding-left:0;padding-right:0}}
+@media(max-width:700px){.wx-cells{gap:15px}.wx-cell .v{font-size:1.04rem}.gal-grid{gap:10px}.section{padding:78px 0}}
+@media(max-width:520px){.wrap{padding:0 20px}.section{padding:64px 0}header{padding:14px 20px}.cta-band .inner{padding-left:0;padding-right:0}.hero{min-height:90vh;padding:114px 0 76px}.brand .full{display:none}.wx-cell .v{font-size:1rem}.wx-bar{gap:16px}form.lead{padding:24px}}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.wx-live .pip{animation:none}}
 
 /* REAL PHOTOS */
@@ -423,7 +424,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <section class="feature-band reveal">
   <img src="/img/ramp.jpg" alt="A Cessna trainer on the Chicago Midway ramp with Southwest airliners behind it">
-  <div class="cap"><div class="wrap"><div class="eyebrow">// Chicago Midway (MDW)</div><h2>You'll train on the same ramp the airlines use.</h2></div></div>
+  <div class="cap"><div class="wrap"><h2>You'll train on the same ramp the airlines use.</h2></div></div>
 </section>
 
 <section class="trust">
@@ -766,13 +767,4 @@ function submitLead(ev){
   fetch('https://api.web3forms.com/submit',{
     method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
     body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))
-  }).then(function(r){return r.json();}).then(function(d){
-    if(d.success){done();}else{throw 0;}
-  }).catch(function(){
-    btn.disabled=false;btn.textContent='Request my callback';err.style.display='block';
-  });
-  return false;
-}
-</script>
-</body>
-</html>
+  }).then(function(r){return r.json();}
