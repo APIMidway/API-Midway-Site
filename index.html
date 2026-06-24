@@ -1,24 +1,778 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aviation Professionals Inc. — Coming Online</title>
+<html lang="en">
+<head><script>document.documentElement.className+=' js'</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API &mdash; Learn to Fly at Chicago Midway | Aviation Professionals Inc.</title>
+<meta name="description" content="Aviation Professionals Inc. (API), Chicago Midway Airport since 1973. Private, Instrument, Commercial and Flight Instructor training. Call 773-284-5678.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--altitude:#071729;--horizon:#E89A3C;--horizon-bright:#F6B85C;--marking:#F4F1E9;--steel:#9DB4CC}
-  *{margin:0;box-sizing:border-box}
-  body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
-    background:radial-gradient(120% 100% at 50% 0%,#0B2742 0%,#071729 55%,#04101F 100%);
-    color:var(--marking);font-family:system-ui,sans-serif;padding:24px}
-  .mark{font-family:Georgia,serif;font-weight:900;font-size:clamp(3rem,12vw,6rem);letter-spacing:.05em}
-  .mark span{color:var(--horizon)}
-  .sub{font-family:ui-monospace,monospace;letter-spacing:.32em;text-transform:uppercase;
-    font-size:.8rem;color:var(--steel);margin:18px 0 8px}
-  h1{font-weight:700;font-size:clamp(1.2rem,3.5vw,1.8rem);margin-top:6px}
-  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--horizon-bright);
-    margin-right:8px;animation:p 1.6s ease-in-out infinite}
-  @keyframes p{0%,100%{opacity:.3}50%{opacity:1}}
-</style></head>
-<body><div>
-  <div class="mark">A<span>P</span>I</div>
-  <div class="sub">Aviation Professionals Inc. · Chicago Midway · Est. 1973</div>
-  <h1><span class="dot"></span>Site coming online</h1>
-</div></body></html>
+:root{
+  --altitude:#071729;--altitude-2:#0B2742;--tarmac:#080C12;--tarmac-2:#0E141D;
+  --horizon:#E89A3C;--horizon-bright:#F6B85C;--marking:#F4F1E9;--steel:#9DB4CC;
+  --steel-dim:#5E7793;--line:rgba(157,180,204,0.16);--maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--altitude);color:var(--marking);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--horizon);font-weight:500}
+h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.04;letter-spacing:-0.015em}
+a{color:var(--horizon-bright)}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;transition:background .3s,padding .3s,box-shadow .3s}
+header.scrolled{background:rgba(7,23,41,0.92);backdrop-filter:blur(10px);padding:11px 28px;box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:baseline;gap:11px;text-decoration:none;color:var(--marking)}
+.brand .mark{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.55rem;letter-spacing:.04em;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.brand .mark span{color:var(--horizon)}
+.brand .full{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--steel);max-width:120px;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+nav.top{display:flex;align-items:center;gap:30px}
+nav.top a.navlink{color:var(--steel);text-decoration:none;font-size:.86rem;font-weight:500;transition:color .2s}
+nav.top a.navlink:hover,nav.top a.navlink.active{color:var(--marking)}
+.call-btn{display:inline-flex;align-items:center;gap:9px;background:var(--horizon);color:#1a0f00;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.86rem;padding:11px 18px;border-radius:3px;transition:transform .15s,background .2s;white-space:nowrap}
+.call-btn:hover{background:var(--horizon-bright);transform:translateY(-1px)}
+.call-btn svg{width:15px;height:15px}
+
+/* BUTTONS */
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--horizon);color:#1a0f00;text-decoration:none;font-weight:700;font-size:1rem;padding:15px 26px;border-radius:3px;transition:transform .15s,background .2s;font-family:'Archivo',sans-serif}
+.btn-primary:hover{background:var(--horizon-bright);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(247,241,233,.55);color:var(--marking);text-decoration:none;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:3px;transition:border-color .2s,background .2s;backdrop-filter:blur(2px)}
+.btn-ghost:hover{border-color:var(--horizon);background:rgba(232,154,60,0.14)}
+
+/* HOME HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:130px 0 94px;overflow:hidden;background:#04101F}
+.hero-sky{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#04101F 0%,#081E36 30%,#103251 50%,#B5713A 78%,#2A160B 100%)}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;z-index:1;filter:brightness(1.08) contrast(1.02) saturate(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(3,10,20,.55) 0%,rgba(3,10,20,0) 22%,rgba(3,10,20,0) 48%,rgba(3,10,20,.74) 100%),
+  linear-gradient(95deg,rgba(3,10,20,.48) 0%,rgba(3,10,20,.14) 42%,rgba(3,10,20,0) 72%)}
+.hero-inner{position:relative;z-index:3;max-width:940px}
+.hero .eyebrow{font-size:.82rem;letter-spacing:.34em;color:var(--horizon-bright);font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.85),0 1px 10px rgba(0,0,0,.7)}
+.hero h1{font-size:clamp(3rem,7.4vw,6.4rem);font-weight:900;line-height:1.02;letter-spacing:-0.025em;margin:22px 0 26px;text-shadow:0 2px 4px rgba(0,0,0,.78),0 2px 30px rgba(0,0,0,.6)}
+.hero h1 em{font-style:normal;color:var(--horizon-bright)}
+.hero p.sub{font-size:clamp(1.08rem,1.7vw,1.32rem);line-height:1.5;color:#EAF1F7;max-width:620px;margin-bottom:36px;text-shadow:0 2px 4px rgba(0,0,0,.72),0 1px 16px rgba(0,0,0,.55)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero .phone-line{margin-top:30px;font-family:'IBM Plex Mono',monospace;color:#D3DEEA;font-size:.82rem;letter-spacing:.06em}
+.hero .phone-line b{color:var(--marking);font-weight:600}
+
+/* TRUST STRIP */
+.trust{background:var(--tarmac);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-grid .cell{padding:30px 26px;border-right:1px solid var(--line)}
+.trust-grid .cell:last-child{border-right:none}
+.trust .num{font-family:'Archivo',sans-serif;font-weight:800;font-size:2rem;line-height:1}
+.trust .num span{color:var(--horizon)}
+.trust .lbl{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim);margin-top:8px}
+
+/* LIVE WEATHER STRIP */
+.wx{background:var(--tarmac-2);border-bottom:1px solid var(--line)}
+.wx-bar{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:18px 0}
+.wx-id{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.wx-live{display:inline-flex;align-items:center;gap:7px;color:var(--horizon)}
+.wx-live .pip{width:8px;height:8px;border-radius:50%;background:var(--horizon-bright);box-shadow:0 0 0 0 rgba(246,184,92,.6);animation:pip 1.8s ease-out infinite}
+@keyframes pip{0%{box-shadow:0 0 0 0 rgba(246,184,92,.55)}70%{box-shadow:0 0 0 9px rgba(246,184,92,0)}100%{box-shadow:0 0 0 0 rgba(246,184,92,0)}}
+.wx-cells{display:flex;gap:26px;flex-wrap:wrap;flex:1}
+.wx-cell .k{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim)}
+.wx-cell .v{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.18rem;line-height:1.15;margin-top:3px}
+.wx-cat{font-family:'Archivo',sans-serif;font-weight:800;font-size:.86rem;letter-spacing:.06em;padding:7px 14px;border-radius:3px;color:#06121f}
+.wx-cat[data-cat="VFR"]{background:#34C759}
+.wx-cat[data-cat="MVFR"]{background:#3E9BFF}
+.wx-cat[data-cat="IFR"]{background:#FF4D4D}
+.wx-cat[data-cat="LIFR"]{background:#D26BFF}
+.wx-cat[data-cat="--"]{background:var(--steel-dim);color:var(--marking)}
+.wx-raw{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--steel-dim);letter-spacing:.02em;padding:0 0 16px;word-break:break-word}
+.wx-raw a{color:var(--steel)}
+
+/* SECTIONS */
+.section{padding:96px 0}
+.section.tight{padding:72px 0}
+.sec-head{max-width:660px;margin-bottom:50px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;margin:14px 0 16px}
+.sec-head p{color:var(--steel);font-size:1.06rem}
+.prose{max-width:720px}
+.prose p{color:var(--steel);font-size:1.08rem;margin-bottom:20px}
+.prose p strong{color:var(--marking);font-weight:600}
+.alt{background:linear-gradient(180deg,var(--altitude),var(--altitude-2))}
+.dark{background:var(--tarmac)}
+
+/* ATTITUDE / SPLIT */
+.att-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.att-copy p{color:var(--steel);margin-bottom:18px;font-size:1.05rem}
+.att-copy .tag{display:inline-block;margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--horizon);border:1px solid rgba(232,154,60,.4);padding:6px 12px;border-radius:2px}
+.att-vis{max-width:360px;width:100%;margin:0 auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.att-vis svg{width:100%;height:auto;display:block}
+.att-hint{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-dim);margin-top:14px}
+
+/* FACTS GRID */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.fact{background:var(--altitude);padding:26px 24px}
+.fact .k{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim);margin-bottom:10px}
+.fact .v{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.45rem;line-height:1.1}
+.fact .v small{display:block;font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:.82rem;color:var(--steel);margin-top:6px;letter-spacing:0}
+.facts-note{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--steel-dim);margin-top:16px;letter-spacing:.04em}
+
+/* PROGRAM CARDS */
+.prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.prog-card{background:var(--tarmac-2);border:1px solid var(--line);border-radius:5px;padding:30px 28px;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;text-decoration:none;display:block;color:var(--marking)}
+.prog-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--horizon);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+.prog-card:hover{transform:translateY(-4px);border-color:rgba(232,154,60,.4)}
+.prog-card:hover::before{transform:scaleY(1)}
+.prog-card .code{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;color:var(--steel-dim)}
+.prog-card h3{font-size:1.4rem;font-weight:700;margin:10px 0 12px}
+.prog-card p{color:var(--steel);font-size:.96rem}
+.prog-card .go{display:inline-block;margin-top:18px;color:var(--horizon);font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.08em}
+
+/* WHY GRID */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.why-cell{background:var(--altitude);padding:34px 28px}
+.why-cell .ico{font-family:'IBM Plex Mono',monospace;color:var(--horizon);font-size:.8rem;letter-spacing:.12em;margin-bottom:14px}
+.why-cell h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+.why-cell p{color:var(--steel);font-size:.95rem}
+
+/* TIMELINE */
+.timeline{max-width:760px;border-left:2px solid var(--line);margin-left:6px}
+.tl{position:relative;padding:0 0 40px 34px}
+.tl::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--horizon);box-shadow:0 0 0 4px var(--altitude)}
+.tl .yr{font-family:'IBM Plex Mono',monospace;color:var(--horizon);font-size:.8rem;letter-spacing:.1em;margin-bottom:8px}
+.tl h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.tl p{color:var(--steel)}
+
+/* GALLERY */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:14px}
+.gal-item{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;background:#04101F;line-height:0;aspect-ratio:4/3}
+.gal-item.big{grid-column:span 2;grid-row:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease,filter .3s}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(1.05)}
+.gal-item .cap{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(0deg,rgba(3,10,20,.86),rgba(3,10,20,0));font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:var(--marking);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.gal-item:hover .cap{opacity:1;transform:none}
+.gal-item .zoom{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(7,23,41,.7);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--horizon-bright);opacity:0;transition:opacity .3s}
+.gal-item:hover .zoom{opacity:1}
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(3,8,15,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:40px;flex-direction:column}
+.lb.show{display:flex}
+.lb img{max-width:92vw;max-height:80vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .lb-cap{margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--steel);letter-spacing:.04em;text-align:center;max-width:680px}
+.lb .lb-close,.lb .lb-nav{position:absolute;background:rgba(14,20,29,.85);border:1px solid var(--line);color:var(--marking);cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.lb .lb-close:hover,.lb .lb-nav:hover{border-color:var(--horizon);background:rgba(232,154,60,.18)}
+.lb .lb-close{top:24px;right:24px;width:46px;height:46px;font-size:1.4rem}
+.lb .lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.6rem}
+.lb .lb-nav.prev{left:24px}.lb .lb-nav.next{right:24px}
+
+/* PROOF / QUOTE */
+.proof{background:var(--tarmac);text-align:center}
+.proof .award{display:inline-block;font-family:'IBM Plex Mono',monospace;color:var(--horizon);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px;border:1px solid rgba(232,154,60,.4);padding:8px 16px;border-radius:2px}
+.proof blockquote{font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(1.4rem,2.8vw,2.1rem);line-height:1.3;max-width:820px;margin:0 auto 22px}
+.proof blockquote span{color:var(--horizon-bright)}
+.proof cite{font-style:normal;color:var(--steel-dim);font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.08em}
+
+/* CTA BAND */
+.cta-band{background:linear-gradient(110deg,var(--altitude-2),#123A60);border-top:1px solid rgba(232,154,60,.25);border-bottom:1px solid rgba(232,154,60,.25)}
+.cta-band .inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:54px 0}
+.cta-band h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:8px}
+.cta-band p{color:var(--steel)}
+.cta-band .phone{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.6rem;color:var(--marking);text-decoration:none}
+.cta-band .phone:hover{color:var(--horizon-bright)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact h2{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:700;margin:14px 0 18px}
+.contact .lead2{color:var(--steel);font-size:1.05rem;margin-bottom:30px}
+.infoline{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.infoline:last-child{border-bottom:1px solid var(--line)}
+.infoline .k{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim);width:74px;flex-shrink:0}
+.infoline .v{color:var(--marking);font-size:1.02rem}
+.infoline .v a{color:var(--horizon-bright);text-decoration:none}
+.bigphone{display:block;font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3rem);color:var(--marking);text-decoration:none;margin:8px 0 4px;letter-spacing:-.01em}
+.bigphone:hover{color:var(--horizon-bright)}
+form.lead{background:var(--tarmac-2);border:1px solid var(--line);border-radius:6px;padding:34px}
+form.lead .fhead{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;margin-bottom:6px}
+form.lead .fsub{color:var(--steel-dim);font-size:.88rem;margin-bottom:24px}
+.field{margin-bottom:16px}
+.field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;background:var(--altitude);border:1px solid var(--line);border-radius:3px;color:var(--marking);font-family:'IBM Plex Sans',sans-serif;font-size:.96rem;padding:12px 14px;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--horizon)}
+.field textarea{resize:vertical;min-height:80px}
+.hp{position:absolute;left:-9999px}
+.submit{width:100%;background:var(--horizon);color:#1a0f00;border:none;border-radius:3px;font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;padding:15px;cursor:pointer;transition:background .2s,transform .15s;margin-top:6px}
+.submit:hover{background:var(--horizon-bright);transform:translateY(-1px)}
+.submit:disabled{opacity:.6;cursor:default;transform:none}
+.formnote{text-align:center;color:var(--steel-dim);font-size:.78rem;margin-top:14px;font-family:'IBM Plex Mono',monospace}
+.formerr{display:none;color:#FF8A8A;font-size:.82rem;margin-top:12px;text-align:center;font-family:'IBM Plex Mono',monospace}
+.confirm{display:none;text-align:center;padding:40px 10px;background:var(--tarmac-2);border:1px solid var(--line);border-radius:6px}
+.confirm.show{display:block}
+.confirm .chk{font-size:2.4rem;color:var(--horizon)}
+.confirm h3{font-family:'Archivo',sans-serif;margin:12px 0 8px}
+.confirm p{color:var(--steel)}
+.map-embed{margin-top:30px;border:1px solid var(--line);border-radius:6px;overflow:hidden;line-height:0}
+.map-embed iframe{width:100%;height:300px;border:0;filter:grayscale(.3) contrast(1.05)}
+
+/* FOOTER */
+footer{background:var(--tarmac);border-top:1px solid var(--line);padding:44px 0 110px}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+footer .mark{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.4rem;color:var(--marking);text-decoration:none}
+footer .mark span{color:var(--horizon)}
+footer .tag{color:var(--steel-dim);font-size:.82rem;margin-top:8px;max-width:280px}
+footer nav{display:flex;gap:26px;flex-wrap:wrap}
+footer nav a{color:var(--steel);text-decoration:none;font-size:.88rem}
+footer nav a:hover{color:var(--marking)}
+.copyright{color:var(--steel-dim);font-family:'IBM Plex Mono',monospace;font-size:.72rem;margin-top:34px;letter-spacing:.06em}
+
+/* MOBILE CALL BAR */
+.mobile-call{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--horizon);color:#1a0f00;text-decoration:none;text-align:center;padding:15px;font-family:'Archivo',sans-serif;font-weight:800;box-shadow:0 -4px 20px rgba(0,0,0,.4)}
+
+/* REVEAL */
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+html.js .reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav.top .navlink{display:none}
+  .att-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .att-vis{max-width:300px}
+  .trust-grid,.facts{grid-template-columns:repeat(2,1fr)}
+  .trust-grid .cell:nth-child(2){border-right:none}
+  .trust-grid .cell:nth-child(1),.trust-grid .cell:nth-child(2){border-bottom:1px solid var(--line)}
+  .prog-grid,.why-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-item.big{grid-column:span 2;grid-row:span 1}
+  .mobile-call{display:block}.call-btn{display:none}
+  footer{padding-bottom:90px}
+}
+@media(max-width:520px){.wrap{padding:0 20px}.section{padding:70px 0}header{padding:14px 20px}.cta-band .inner{padding-left:0;padding-right:0}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.wx-live .pip{animation:none}}
+
+/* REAL PHOTOS */
+.photo{border:1px solid var(--line);border-radius:6px;overflow:hidden;line-height:0;background:#04101F;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.feature-band{position:relative;overflow:hidden;background:#04101F}
+.feature-band img{width:100%;height:clamp(340px,52vw,560px);object-fit:cover;object-position:50% 52%;display:block}
+.feature-band .cap{position:absolute;left:0;right:0;bottom:0;padding:46px 0 36px;background:linear-gradient(0deg,rgba(3,10,20,.9) 0%,rgba(3,10,20,.3) 60%,rgba(3,10,20,0) 100%);z-index:2}
+.feature-band .cap .eyebrow{margin-bottom:10px}
+.feature-band .cap h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.8vw,2.2rem);line-height:1.08;max-width:680px}
+
+[id]{scroll-margin-top:84px}
+.psec{padding:80px 0}
+.psec .prose{max-width:none}
+.hero-skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%;z-index:0;display:block}
+@media(max-width:600px){.hero-skyline{height:40%}}
+
+@media(max-width:768px){
+  .hero-inner{text-align:center;margin:0 auto}
+  .hero p.sub{margin-left:auto;margin-right:auto}
+  .hero .cta-row{justify-content:center}
+  .sec-head{text-align:center;margin-left:auto;margin-right:auto}
+  .att-copy{text-align:center}
+  .att-copy .tag{margin-left:auto;margin-right:auto}
+  .prose{text-align:center}
+  .why-cell{text-align:center}
+  .fact{text-align:center}
+  .feature-band .cap{text-align:center}
+  .feature-band .cap h2{margin-left:auto;margin-right:auto}
+  .cta-band .inner{flex-direction:column;text-align:center;align-items:center}
+  .contact>div:first-child{text-align:center}
+  .infoline{justify-content:center}
+  .wx-bar{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a href="#top" class="brand"><span class="mark">A<span>P</span>I</span><span class="full">Aviation Professionals Inc.</span></a>
+  <nav class="top">
+    <a href="#method" class="navlink">The Method</a>
+    <a href="#training" class="navlink">Training</a>
+    <a href="#gallery" class="navlink">Gallery</a>
+    <a href="#about" class="navlink">About</a>
+    <a href="#contact" class="navlink">Contact</a>
+    <a href="tel:7732845678" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>773 284-5678</a>
+  </nav>
+</header>
+
+<span id="top"></span>
+<section class="hero">
+  <div class="hero-sky"></div>
+  <svg class="hero-skyline" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1C30"/><stop offset="1" stop-color="#03090F"/></linearGradient>
+      <linearGradient id="bldFar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13314E"/><stop offset="1" stop-color="#091B2C"/></linearGradient>
+    </defs>
+    <g fill="url(#bldFar)" opacity="0.7">
+      <rect x="60" y="208" width="70" height="112"/><rect x="150" y="222" width="60" height="98"/><rect x="300" y="200" width="80" height="120"/><rect x="470" y="214" width="64" height="106"/><rect x="640" y="198" width="74" height="122"/><rect x="900" y="210" width="70" height="110"/><rect x="1080" y="200" width="82" height="120"/><rect x="1260" y="214" width="70" height="106"/>
+    </g>
+    <g fill="url(#bld)">
+      <rect x="0" y="200" width="70" height="120"/><rect x="68" y="150" width="46" height="170"/><rect x="110" y="176" width="64" height="144"/><rect x="172" y="120" width="40" height="200"/><rect x="208" y="150" width="72" height="170"/>
+      <rect x="276" y="70" width="52" height="250"/><rect x="326" y="140" width="58" height="180"/>
+      <rect x="380" y="46" width="86" height="274"/><rect x="398" y="24" width="50" height="24"/><rect x="410" y="6" width="5" height="20"/><rect x="438" y="6" width="5" height="20"/>
+      <rect x="470" y="120" width="60" height="200"/><rect x="528" y="150" width="48" height="170"/>
+      <rect x="572" y="70" width="66" height="250"/><rect x="588" y="44" width="40" height="28"/><rect x="606" y="20" width="4" height="26"/>
+      <rect x="640" y="140" width="58" height="180"/><rect x="696" y="110" width="70" height="210"/>
+      <polygon points="770,320 786,70 834,70 850,320"/><rect x="800" y="44" width="4" height="26"/><rect x="816" y="44" width="4" height="26"/>
+      <rect x="856" y="150" width="60" height="170"/><rect x="914" y="120" width="80" height="200"/><rect x="992" y="150" width="54" height="170"/><rect x="1044" y="110" width="72" height="210"/><rect x="1114" y="150" width="58" height="170"/><rect x="1168" y="130" width="84" height="190"/><rect x="1248" y="160" width="60" height="160"/><rect x="1304" y="140" width="78" height="180"/><rect x="1378" y="170" width="62" height="150"/>
+    </g>
+    <g fill="#F6B85C">
+      <rect x="288" y="120" width="4" height="5" opacity=".5"/><rect x="304" y="120" width="4" height="5" opacity=".35"/><rect x="288" y="160" width="4" height="5" opacity=".4"/><rect x="304" y="200" width="4" height="5" opacity=".5"/><rect x="288" y="240" width="4" height="5" opacity=".3"/><rect x="304" y="280" width="4" height="5" opacity=".45"/>
+      <rect x="392" y="110" width="4" height="5" opacity=".5"/><rect x="428" y="150" width="4" height="5" opacity=".4"/><rect x="410" y="200" width="4" height="5" opacity=".5"/><rect x="446" y="140" width="4" height="5" opacity=".3"/><rect x="392" y="250" width="4" height="5" opacity=".45"/>
+      <rect x="586" y="110" width="4" height="5" opacity=".5"/><rect x="612" y="150" width="4" height="5" opacity=".35"/><rect x="598" y="210" width="4" height="5" opacity=".45"/>
+      <rect x="792" y="120" width="4" height="5" opacity=".5"/><rect x="814" y="160" width="4" height="5" opacity=".4"/><rect x="800" y="210" width="4" height="5" opacity=".45"/>
+      <rect x="186" y="160" width="4" height="5" opacity=".4"/><rect x="710" y="150" width="4" height="5" opacity=".4"/><rect x="942" y="170" width="4" height="5" opacity=".35"/><rect x="1066" y="150" width="4" height="5" opacity=".4"/>
+    </g>
+  </svg>
+  <img class="hero-photo" src="/img/hero.jpg" alt="Aerial view of the Chicago skyline at dusk">
+  <div class="wrap"><div class="hero-inner">
+    <div class="eyebrow">Chicago Midway Airport &middot; Est. 1973</div>
+    <h1>The Chicago skyline is your <em>first classroom.</em></h1>
+    <p class="sub">Train at Midway, minutes from the Loop, in the same real Class C airspace the airlines fly &mdash; taught through Attitude Flying, the method API has refined for over fifty years.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn-primary">Start with a discovery flight</a>
+      <a href="tel:7732845678" class="btn-ghost">Call 773 284-5678</a>
+    </div>
+    <div class="phone-line">Open 7 days a week, 8am&ndash;8pm &middot; <b>You pay as you fly &mdash; no contracts, no dues</b></div>
+  </div></div>
+</section>
+
+<!-- LIVE WEATHER -->
+<section class="wx" id="wx" aria-label="Live weather at Chicago Midway">
+  <div class="wrap">
+    <div class="wx-bar">
+      <div class="wx-id"><span class="wx-live"><span class="pip"></span>LIVE</span>&middot; KMDW Midway</div>
+      <div class="wx-cells" id="wxCells">
+        <div class="wx-cell"><div class="k">Wind</div><div class="v" data-f="wind">&mdash;</div></div>
+        <div class="wx-cell"><div class="k">Visibility</div><div class="v" data-f="vis">&mdash;</div></div>
+        <div class="wx-cell"><div class="k">Ceiling</div><div class="v" data-f="ceil">&mdash;</div></div>
+        <div class="wx-cell"><div class="k">Altimeter</div><div class="v" data-f="alt">&mdash;</div></div>
+        <div class="wx-cell"><div class="k">Temp</div><div class="v" data-f="temp">&mdash;</div></div>
+      </div>
+      <div class="wx-cat" data-cat="--" id="wxCat">&middot; &middot; &middot;</div>
+    </div>
+    <div class="wx-raw" id="wxRaw">Fetching current Midway observation&hellip;</div>
+  </div>
+</section>
+
+<section class="section alt" id="method">
+  <div class="wrap"><div class="att-grid">
+    <div class="att-copy reveal">
+      <div class="eyebrow">The API Method</div>
+      <h2 style="font-size:clamp(1.9rem,3.6vw,3rem);margin:14px 0 18px;">Attitude Flying</h2>
+      <p>Most schools bury new students in instruments. We start with the one reference that never lies &mdash; the relationship between your aircraft and the horizon.</p>
+      <p>By learning to read the visual picture out the window first, you control altitude, bank, coordination, and airspeed by sight before you ever chase a needle. It's faster to learn, it sticks, and it builds the instinct that keeps pilots ahead of the airplane.</p>
+      <p>It's our own copyrighted technique, and it's the reason API students solo confident and fly safe.</p>
+      <span class="tag">Copyrighted &middot; Taught only at API</span>
+    </div>
+    <div class="att-copy reveal">
+      <div class="att-vis"><svg id="ai" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive attitude indicator">
+        <defs>
+          <radialGradient id="case" cx="50%" cy="40%" r="72%"><stop offset="0" stop-color="#262a30"/><stop offset="62%" stop-color="#15181d"/><stop offset="100%" stop-color="#090b0e"/></radialGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F92C2"/><stop offset="100%" stop-color="#94C5E4"/></linearGradient>
+          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C5532"/><stop offset="100%" stop-color="#3C2611"/></linearGradient>
+          <radialGradient id="screw" cx="40%" cy="38%" r="72%"><stop offset="0" stop-color="#9aa0a8"/><stop offset="60%" stop-color="#52565c"/><stop offset="100%" stop-color="#222529"/></radialGradient>
+          <radialGradient id="knob" cx="50%" cy="32%" r="78%"><stop offset="0" stop-color="#3a3f46"/><stop offset="70%" stop-color="#16191d"/><stop offset="100%" stop-color="#070809"/></radialGradient>
+          <radialGradient id="glass" cx="38%" cy="30%" r="82%"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset="46%" stop-color="#ffffff" stop-opacity="0"/><stop offset="100%" stop-color="#000000" stop-opacity=".34"/></radialGradient>
+          <clipPath id="face"><circle cx="180" cy="176" r="132"/></clipPath>
+        </defs>
+        <rect x="8" y="8" width="344" height="344" rx="26" fill="url(#case)" stroke="#000" stroke-width="1.5"/>
+        <g>
+          <circle cx="40" cy="40" r="9" fill="url(#screw)"/><line x1="35" y1="40" x2="45" y2="40" stroke="#1b1d21" stroke-width="2"/>
+          <circle cx="320" cy="40" r="9" fill="url(#screw)"/><line x1="315" y1="40" x2="325" y2="40" stroke="#1b1d21" stroke-width="2"/>
+          <circle cx="40" cy="320" r="9" fill="url(#screw)"/><line x1="35" y1="320" x2="45" y2="320" stroke="#1b1d21" stroke-width="2"/>
+          <circle cx="320" cy="320" r="9" fill="url(#screw)"/><line x1="315" y1="320" x2="325" y2="320" stroke="#1b1d21" stroke-width="2"/>
+        </g>
+        <circle cx="180" cy="176" r="146" fill="#0c0e12"/><circle cx="180" cy="176" r="138" fill="#191d23"/><circle cx="180" cy="176" r="133" fill="#000"/>
+        <g clip-path="url(#face)">
+          <!-- MOVING HORIZON (bank + pitch) -->
+          <g id="aiHorizon">
+            <rect x="-160" y="-260" width="680" height="436" fill="url(#sky)"/>
+            <rect x="-160" y="176" width="680" height="436" fill="url(#ground)"/>
+            <g stroke="#5A3C20" stroke-width="2" opacity=".5"><line x1="180" y1="176" x2="44" y2="350"/><line x1="180" y1="176" x2="112" y2="360"/><line x1="180" y1="176" x2="180" y2="360"/><line x1="180" y1="176" x2="248" y2="360"/><line x1="180" y1="176" x2="316" y2="350"/></g>
+            <line x1="-160" y1="176" x2="520" y2="176" stroke="#EFEFEF" stroke-width="2.5"/>
+            <g stroke="#EAF2F8" stroke-width="2"><line x1="150" y1="130" x2="210" y2="130"/><line x1="161" y1="106" x2="199" y2="106"/><line x1="150" y1="146" x2="210" y2="146"/></g>
+            <g stroke="#E8D8C8" stroke-width="2" opacity=".6"><line x1="152" y1="222" x2="208" y2="222"/><line x1="161" y1="246" x2="199" y2="246"/></g>
+          </g>
+          <circle cx="180" cy="176" r="132" fill="url(#glass)"/>
+        </g>
+        <!-- MOVING BANK SCALE (bank only) -->
+        <g id="aiBank">
+          <g stroke="#EDEDED" stroke-width="2.4" stroke-linecap="round">
+            <line x1="157.8" y1="49.9" x2="160.0" y2="59.6"/><line x1="202.2" y1="49.9" x2="200.0" y2="59.6"/>
+            <line x1="136.2" y1="55.7" x2="140.6" y2="64.9"/><line x1="223.8" y1="55.7" x2="219.4" y2="64.9"/>
+            <line x1="116.0" y1="65.2" x2="122.6" y2="73.4"/><line x1="244.0" y1="65.2" x2="237.4" y2="73.4"/>
+            <line x1="89.5" y1="85.5" x2="98.1" y2="92.4"/><line x1="270.5" y1="85.5" x2="261.9" y2="92.4"/>
+            <line x1="69.2" y1="112.0" x2="80.0" y2="118.0"/><line x1="290.8" y1="112.0" x2="280.0" y2="118.0"/>
+          </g>
+        </g>
+        <g fill="#EDEDED"><circle cx="56" cy="176" r="2.6"/><circle cx="304" cy="176" r="2.6"/></g>
+        <!-- FIXED bank index pointer -->
+        <polygon points="172,47 188,47 180,61" fill="#D8302C"/>
+        <!-- FIXED miniature aircraft -->
+        <g stroke="#C92A2A" stroke-width="3.5" stroke-linecap="round"><line x1="98" y1="176" x2="150" y2="176"/><line x1="210" y1="176" x2="262" y2="176"/></g>
+        <g fill="#E8A33C" stroke="#241402" stroke-width="1.4">
+          <rect x="116" y="172.5" width="52" height="7" rx="1.5"/><rect x="192" y="172.5" width="52" height="7" rx="1.5"/>
+          <rect x="115" y="172.5" width="6" height="15" rx="1.5"/><rect x="239" y="172.5" width="6" height="15" rx="1.5"/>
+          <rect x="178" y="159" width="4" height="16" rx="1.5"/><circle cx="180" cy="176" r="6.5"/>
+        </g>
+        <text x="180" y="252" text-anchor="middle" fill="#EDEDED" font-family="'IBM Plex Sans',Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="2.5">ATTITUDE</text>
+        <circle cx="180" cy="340" r="22" fill="url(#knob)" stroke="#000" stroke-width="1"/>
+        <g stroke="#000" stroke-width="1.4" opacity=".55"><line x1="168" y1="333" x2="168" y2="347"/><line x1="174" y1="330" x2="174" y2="350"/><line x1="180" y1="329" x2="180" y2="351"/><line x1="186" y1="330" x2="186" y2="350"/><line x1="192" y1="333" x2="192" y2="347"/></g>
+      </svg></div>
+      <div class="att-hint">Move your cursor across the instrument</div>
+    </div>
+  </div></div>
+</section>
+
+<section class="feature-band reveal">
+  <img src="/img/ramp.jpg" alt="A Cessna trainer on the Chicago Midway ramp with Southwest airliners behind it">
+  <div class="cap"><div class="wrap"><div class="eyebrow">// Chicago Midway (MDW)</div><h2>You'll train on the same ramp the airlines use.</h2></div></div>
+</section>
+
+<section class="trust">
+  <div class="trust-grid">
+    <div class="cell"><div class="num" data-count="50" data-suffix="+">0<span>+</span></div><div class="lbl">Years training pilots</div></div>
+    <div class="cell"><div class="num">MDW</div><div class="lbl">Based at Midway</div></div>
+    <div class="cell"><div class="num">2020</div><div class="lbl">Great Lakes CFI of the Year</div></div>
+    <div class="cell"><div class="num">A+</div><div class="lbl">BBB &middot; Safety record</div></div>
+  </div>
+</section>
+
+<section class="section dark" id="training">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Certificates &amp; Ratings</div><h2>Wherever you want to take it.</h2><p>From your first hour in the left seat to the flight deck of an airliner &mdash; one school, one method, the whole way up.</p></div>
+    <div class="prog-grid">
+      <a class="prog-card reveal" href="#private"><div class="code">01 &mdash; PRIVATE PILOT</div><h3>Private Pilot Certificate</h3><p>Fly an airplane and carry passengers. Where most of our students fall in love with flying.</p><span class="go">Explore &rarr;</span></a>
+      <a class="prog-card reveal" href="#instrument"><div class="code">02 &mdash; INSTRUMENT</div><h3>Instrument Rating</h3><p>Fly by instruments alone, in weather that grounds VFR pilots. In real Midway airspace.</p><span class="go">Explore &rarr;</span></a>
+      <a class="prog-card reveal" href="#commercial"><div class="code">03 &mdash; COMMERCIAL</div><h3>Commercial Pilot</h3><p>Get paid to fly. The certificate that turns flying into a profession.</p><span class="go">Explore &rarr;</span></a>
+      <a class="prog-card reveal" href="#instructor"><div class="code">04 &mdash; INSTRUCTOR</div><h3>Certified Flight Instructor</h3><p>Teach, build hours, and get paid doing it. The fastest path to airline minimums.</p><span class="go">Explore &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="psec" id="private">
+  <div class="wrap"><div class="att-grid">
+    <div class="reveal prose">
+      <div class="eyebrow">Certificate &middot; 01</div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);margin:14px 0 18px;">Private Pilot Certificate</h2>
+      <p>The license to fly an airplane and take people with you &mdash; the foundation every other rating is built on. At API it's one instructor, one student, paced to you, and built around <strong>Attitude Flying</strong> so the airplane makes sense long before the instruments do.</p>
+      <div class="facts" style="margin-top:8px">
+        <div class="fact"><div class="k">Min age</div><div class="v">17<small>16 to solo</small></div></div>
+        <div class="fact"><div class="k">Medical</div><div class="v">3rd<small>FAA certificate</small></div></div>
+        <div class="fact"><div class="k">Flight time</div><div class="v">40 hrs<small>FAA min; most 60&ndash;70</small></div></div>
+        <div class="fact"><div class="k">To finish</div><div class="v">2<small>Written + checkride</small></div></div>
+      </div>
+    </div>
+    <div class="reveal"><figure class="photo"><img src="/img/wing.jpg" alt="View of Chicago from the wing of a Cessna on a training flight"></figure></div>
+  </div></div>
+</section>
+
+<section class="psec alt" id="instrument">
+  <div class="wrap"><div class="att-grid">
+    <div class="reveal"><figure class="photo"><img src="/img/panel.jpg" alt="Cessna instrument panel with the attitude indicator and full six-pack"></figure></div>
+    <div class="reveal prose">
+      <div class="eyebrow">Rating &middot; 02</div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);margin:14px 0 18px;">Instrument Rating</h2>
+      <p>Fly by reference to instruments alone, through cloud and weather that keeps VFR pilots grounded. We teach it in one of the busiest environments in the country &mdash; real approaches, real ATC &mdash; through <strong>Instrument Attitude Flying</strong>, with a syllabus that runs just nine pages and exists nowhere else.</p>
+      <div class="facts" style="margin-top:8px">
+        <div class="fact"><div class="k">Prereq</div><div class="v">PPL<small>Private certificate</small></div></div>
+        <div class="fact"><div class="k">XC time</div><div class="v">50 hrs<small>PIC cross-country</small></div></div>
+        <div class="fact"><div class="k">Instrument</div><div class="v">40 hrs<small>Actual or simulated</small></div></div>
+        <div class="fact"><div class="k">To finish</div><div class="v">2<small>Written + checkride</small></div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="psec" id="commercial">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Certificate &middot; 03 &middot; Career Track</div><h2 style="font-size:clamp(1.7rem,3vw,2.4rem)">Commercial Pilot &amp; the road to the airlines.</h2><p>The certificate that lets you be paid to fly &mdash; and the turning point where flying becomes a career.</p></div>
+    <div class="facts reveal" style="margin-bottom:34px">
+      <div class="fact"><div class="k">Min age</div><div class="v">18</div></div>
+      <div class="fact"><div class="k">Medical</div><div class="v">2nd<small>Class</small></div></div>
+      <div class="fact"><div class="k">Flight time</div><div class="v">250 hrs<small>FAA minimum</small></div></div>
+      <div class="fact"><div class="k">To finish</div><div class="v">2<small>Written + checkride</small></div></div>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-cell"><div class="ico">// STEP 01</div><h3>Private &amp; Instrument</h3><p>Build the foundation and the all-weather capability everything else depends on.</p></div>
+      <div class="why-cell"><div class="ico">// STEP 02</div><h3>Commercial</h3><p>Sharpen to professional standards and earn the right to be paid to fly.</p></div>
+      <div class="why-cell"><div class="ico">// STEP 03</div><h3>Instructor &amp; hours</h3><p>Add your CFI, teach at API, and build toward airline minimums while getting paid.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psec alt" id="instructor">
+  <div class="wrap"><div class="att-grid">
+    <div class="reveal prose">
+      <div class="eyebrow">Certificate &middot; 04</div>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);margin:14px 0 18px;">Certified Flight Instructor</h2>
+      <p>Teach others to fly, build the hours that lead to the airlines, and get paid for every one. You learn to teach <strong>Attitude Flying</strong> itself &mdash; and the strongest instructors we train often go on to instruct here at API.</p>
+      <div class="facts" style="margin-top:8px">
+        <div class="fact"><div class="k">Prereq</div><div class="v">Comm.<small>+ Instrument</small></div></div>
+        <div class="fact"><div class="k">Writtens</div><div class="v">FOI+CFI</div></div>
+        <div class="fact"><div class="k">Endorse</div><div class="v">Spins<small>Sign-off required</small></div></div>
+        <div class="fact"><div class="k">To finish</div><div class="v">Ride<small>The CFI checkride</small></div></div>
+      </div>
+    </div>
+    <div class="reveal"><figure class="photo"><img src="/img/instructor.jpg" alt="An API flight instructor briefing a student on an airport diagram"></figure></div>
+  </div></div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery" style="background:linear-gradient(180deg,var(--altitude-2),var(--altitude))">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">From the ramp</div><h2>Life at the field.</h2><p>Real airplanes, real Midway airspace, real students. Tap any photo to take a closer look.</p></div>
+    <div class="gal-grid reveal">
+      <div class="gal-item big" data-src="/img/ramp.jpg" data-cap="A Cessna trainer on the Midway ramp, airliners behind."><img src="/img/ramp.jpg" alt="Cessna on the Chicago Midway ramp with airliners"><span class="zoom">&#9906;</span><span class="cap">On the ramp at MDW</span></div>
+      <div class="gal-item" data-src="/img/panel.jpg" data-cap="A full six-pack panel — where Attitude Flying meets the instruments."><img src="/img/panel.jpg" alt="Cessna instrument panel"><span class="zoom">&#9906;</span><span class="cap">The six-pack</span></div>
+      <div class="gal-item" data-src="/img/instructor.jpg" data-cap="One instructor, one student — briefing the airport diagram."><img src="/img/instructor.jpg" alt="Instructor briefing a student"><span class="zoom">&#9906;</span><span class="cap">The brief</span></div>
+      <div class="gal-item" data-src="/img/hero.jpg" data-cap="The Chicago skyline at dusk — your first classroom."><img src="/img/hero.jpg" alt="Chicago skyline at dusk"><span class="zoom">&#9906;</span><span class="cap">Chicago at dusk</span></div>
+      <div class="gal-item" data-src="/img/wing.jpg" data-cap="Chicago off the wing on a training flight."><img src="/img/wing.jpg" alt="View of Chicago from the wing"><span class="zoom">&#9906;</span><span class="cap">Off the wing</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <button class="lb-nav next" id="lbNext" aria-label="Next">&#8250;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<section class="section" id="why" style="background:linear-gradient(180deg,var(--altitude),var(--altitude-2))">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Why API</div><h2>Where you learn makes the difference.</h2></div>
+    <div class="why-grid">
+      <div class="why-cell reveal"><div class="ico">// MIDWAY</div><h3>Real airline environment</h3><p>Talking to the tower at a major commercial airport becomes second nature here. Our students fly anywhere without hesitation.</p></div>
+      <div class="why-cell reveal"><div class="ico">// NO CONTRACTS</div><h3>You pay as you fly</h3><p>No contracts, no dues, no membership. You pay for each lesson as you take it and train at the pace that fits your life.</p></div>
+      <div class="why-cell reveal"><div class="ico">// EXPERIENCE</div><h3>Fifty years, one method</h3><p>Founded in 1973 and still family-run. Five decades of refining how pilots are made, taught by instructors who fly for a living.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Our story &middot; Since 1973</div><h2>Fifty years over Chicago.</h2><p>One of the oldest flight schools in the country, still family-run, still teaching from the same airport.</p></div>
+    <div class="timeline reveal">
+      <div class="tl"><div class="yr">1973</div><h3>API is founded</h3><p>Bill Schreiber opens Aviation Professionals Incorporated at Chicago Midway Airport.</p></div>
+      <div class="tl"><div class="yr">The decades since</div><h3>Attitude Flying takes shape</h3><p>Through thousands of students, API develops and refines its copyrighted horizon-first method for visual and instrument flying.</p></div>
+      <div class="tl"><div class="yr">2020</div><h3>Flight Instructor of the Year</h3><p>API's chief pilot is named Flight Instructor of the Year for the FAA's Great Lakes region.</p></div>
+      <div class="tl"><div class="yr">Today</div><h3>Still family-run, still flying</h3><p>Open seven days a week, pay as you fly, training the next generation of Chicago pilots from the same field where it all started.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section proof">
+  <div class="wrap">
+    <div class="award reveal">2020 Flight Instructor of the Year &mdash; FAA Great Lakes Region</div>
+    <blockquote class="reveal">Who teaches you how to fly, and where you learn, <span>makes all the difference.</span></blockquote>
+    <cite class="reveal">&mdash; Aviation Professionals Inc., since 1973</cite>
+  </div>
+</section>
+
+<section class="section" id="contact" style="background:linear-gradient(180deg,var(--altitude),#050F1E)">
+  <div class="wrap"><div class="contact-grid contact">
+    <div class="reveal">
+      <div class="eyebrow">Take the next step</div>
+      <h2>The first step is a phone call.</h2>
+      <p class="lead2">Tell us what you want to fly and we'll lay out exactly how to get there. No pressure, no contracts &mdash; just a straight conversation with people who've done it.</p>
+      <a href="tel:7732845678" class="bigphone">773 284-5678</a>
+      <div class="infoline"><span class="k">Email</span><span class="v"><a href="mailto:apimidway@gmail.com">apimidway@gmail.com</a></span></div>
+      <div class="infoline"><span class="k">Hours</span><span class="v">7 days a week &middot; 8:00am &ndash; 8:00pm</span></div>
+      <div class="infoline"><span class="k">Field</span><span class="v">Chicago Midway (MDW) &middot; 6321 S. Central Ave</span></div>
+    </div>
+    <div class="reveal">
+      <form class="lead" id="leadForm" onsubmit="return submitLead(event)">
+        <input type="hidden" name="access_key" value="WEB3FORMS_KEY_PLACEHOLDER">
+        <input type="hidden" name="subject" value="New lead from API Midway website">
+        <input type="hidden" name="from_name" value="API Midway Website">
+        <p class="hp"><label>Leave blank: <input name="botcheck" tabindex="-1" autocomplete="off"></label></p>
+        <div class="fhead">Request information</div>
+        <div class="fsub">We'll call you back within one business day.</div>
+        <div class="field"><label for="n">Name</label><input id="n" name="name" type="text" required placeholder="Your name"></div>
+        <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required placeholder="(   )   -    "></div>
+        <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="g">What's your goal?</label>
+          <select id="g" name="goal"><option>Discovery flight &mdash; just want to try it</option><option>Private Pilot Certificate</option><option>Instrument Rating</option><option>Commercial / Career pilot</option><option>Flight Instructor (CFI)</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label for="m">Anything we should know?</label><textarea id="m" name="message" placeholder="Optional"></textarea></div>
+        <button type="submit" class="submit" id="leadBtn">Request my callback</button>
+        <div class="formnote">Or just call &mdash; we're open 7 days a week.</div>
+        <div class="formerr" id="formErr">Something went wrong sending that. Please call 773 284-5678 and we'll take care of you.</div>
+      </form>
+      <div class="confirm" id="confirm"><div class="chk">&#9992;</div><h3>Got it &mdash; we'll be in touch.</h3><p>Expect a call within one business day. Can't wait? Call us now at 773 284-5678.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a href="#top" class="mark">A<span>P</span>I</a><div class="tag">Aviation Professionals Incorporated. Teaching Chicago to fly from Midway Airport since 1973.</div></div>
+      <nav><a href="#training">Training</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a><a href="tel:7732845678">773 284-5678</a></nav>
+    </div>
+    <div class="copyright">&copy; 1973&ndash;2026 Aviation Professionals Inc. &middot; Chicago Midway (MDW) &middot; 773 284-5678</div>
+  </div>
+</footer>
+<a href="tel:7732845678" class="mobile-call">&#128222; Call API &mdash; 773 284-5678</a>
+
+<script>
+/* ---------- header + reveals ---------- */
+(function(){
+  var hdr=document.getElementById('hdr');
+  if(hdr){var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>40)};window.addEventListener('scroll',onScroll,{passive:true});onScroll();}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}});
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* count-up for trust numbers */
+  var counters=document.querySelectorAll('.num[data-count]');
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    var el=e.target,target=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'',t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1100,1);var val=Math.round((1-Math.pow(1-p,3))*target);
+      el.innerHTML=val+'<span>'+suf+'</span>';if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });},{threshold:0.5});
+  counters.forEach(function(el){cio.observe(el)});
+})();
+
+/* ---------- interactive attitude indicator ---------- */
+(function(){
+  var svg=document.getElementById('ai'),hz=document.getElementById('aiHorizon'),bk=document.getElementById('aiBank');
+  if(!svg||!hz)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var tBank=0,tPitch=0,cBank=0,cPitch=0,active=false,last=0;
+  function setTarget(e){
+    var r=svg.getBoundingClientRect();
+    var px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+    tBank=(px-0.5)*-44;            /* +/-22 deg */
+    tPitch=(py-0.5)*32;            /* +/-16 px  */
+    active=true;last=performance.now();
+  }
+  svg.addEventListener('mousemove',setTarget);
+  svg.addEventListener('mouseleave',function(){active=false;});
+  if(window.DeviceOrientationEvent){
+    window.addEventListener('deviceorientation',function(ev){
+      if(ev.gamma==null)return;
+      tBank=Math.max(-22,Math.min(22,ev.gamma));
+      tPitch=Math.max(-16,Math.min(16,((ev.beta||0)-20)*0.4));
+      active=true;last=performance.now();
+    });
+  }
+  function frame(ts){
+    if(!active && !reduce){ /* gentle idle sway */
+      var t=ts/1000; tBank=Math.sin(t*0.55)*7; tPitch=Math.sin(t*0.4+1)*4;
+    }
+    if(reduce){cBank=tBank=0;cPitch=tPitch=0;}
+    cBank+=(tBank-cBank)*0.09; cPitch+=(tPitch-cPitch)*0.09;
+    hz.setAttribute('transform','rotate('+cBank.toFixed(2)+' 180 176) translate(0 '+cPitch.toFixed(2)+')');
+    if(bk)bk.setAttribute('transform','rotate('+cBank.toFixed(2)+' 180 176)');
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- live KMDW weather (NWS api.weather.gov) ---------- */
+(function(){
+  var raw=document.getElementById('wxRaw'),cat=document.getElementById('wxCat');
+  function set(f,v){var el=document.querySelector('.wx-cell .v[data-f="'+f+'"]');if(el)el.textContent=v;}
+  function fail(){
+    if(raw)raw.innerHTML='Live feed unavailable &mdash; <a href="https://aviationweather.gov/data/metar/?id=KMDW&hours=0" target="_blank" rel="noopener">view KMDW METAR &#8599;</a>';
+  }
+  function fmtWind(dir,spd){
+    if(spd==null)return '—';
+    if(spd<1)return 'Calm';
+    var d=(dir==null)?'VRB':(Math.round(dir/10)*10).toString().padStart(3,'0');
+    return d+'° @ '+Math.round(spd)+' kt';
+  }
+  function category(ceil,vis){
+    if(ceil==null&&vis==null)return null;
+    var c=ceil==null?99999:ceil, v=vis==null?99:vis;
+    if(c<500||v<1)return 'LIFR';
+    if(c<1000||v<3)return 'IFR';
+    if(c<=3000||v<=5)return 'MVFR';
+    return 'VFR';
+  }
+  try{
+    fetch('https://api.weather.gov/stations/KMDW/observations/latest',{headers:{'Accept':'application/geo+json'}})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(j){
+      var p=j.properties;if(!p)throw 0;
+      /* wind: convert to knots from unit */
+      var wsv=p.windSpeed&&p.windSpeed.value, wsu=(p.windSpeed&&p.windSpeed.unitCode)||'';
+      var kt=null;
+      if(wsv!=null){kt= wsu.indexOf('m_s')>-1 ? wsv*1.943844 : wsv/1.852;}
+      set('wind',fmtWind(p.windDirection&&p.windDirection.value,kt));
+      /* visibility m -> SM */
+      var sm=null;
+      if(p.visibility&&p.visibility.value!=null){sm=p.visibility.value/1609.344;set('vis',(sm>=1?Math.round(sm):sm.toFixed(1))+' SM');}
+      /* ceiling from cloud layers (BKN/OVC), m -> ft */
+      var ceil=null;
+      if(p.cloudLayers&&p.cloudLayers.length){
+        p.cloudLayers.forEach(function(l){
+          if((l.amount==='BKN'||l.amount==='OVC')&&l.base&&l.base.value!=null){
+            var ft=l.base.value*3.28084; if(ceil==null||ft<ceil)ceil=ft;
+          }
+        });
+      }
+      set('ceil',ceil==null?'Clear / SCT':(Math.round(ceil/100)*100).toLocaleString()+' ft');
+      /* altimeter Pa -> inHg */
+      if(p.barometricPressure&&p.barometricPressure.value!=null){
+        set('alt',(p.barometricPressure.value/3386.389).toFixed(2)+' inHg');
+      }
+      /* temp C -> show C/F */
+      if(p.temperature&&p.temperature.value!=null){
+        var c=p.temperature.value; set('temp',Math.round(c)+'°C / '+Math.round(c*9/5+32)+'°F');
+      }
+      /* category */
+      var fc=category(ceil,sm);
+      if(fc&&cat){cat.setAttribute('data-cat',fc);cat.textContent=fc;}
+      /* raw metar */
+      if(raw){
+        var t=p.timestamp?new Date(p.timestamp):null;
+        var ago=t?(' · '+t.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})):'';
+        raw.textContent=(p.rawMessage||'')+ago;
+      }
+    })
+    .catch(fail);
+  }catch(e){fail();}
+})();
+
+/* ---------- lightbox ---------- */
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.gal-item'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  var i=0;
+  function open(n){i=(n+items.length)%items.length;var it=items[i];img.src=it.getAttribute('data-src');img.alt=it.querySelector('img').alt;cap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('show');}
+  function close(){lb.classList.remove('show');img.src='';}
+  items.forEach(function(it,n){it.addEventListener('click',function(){open(n);});});
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();open(i+1);});
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();open(i-1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('show'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(i+1);if(e.key==='ArrowLeft')open(i-1);});
+})();
+
+/* ---------- contact form (Web3Forms -> emails apimidway@gmail.com) ---------- */
+function submitLead(ev){
+  ev.preventDefault();
+  var form=ev.target,btn=document.getElementById('leadBtn'),err=document.getElementById('formErr');
+  err.style.display='none';
+  var key=form.querySelector('[name=access_key]').value;
+  var done=function(){form.style.display='none';var c=document.getElementById('confirm');if(c)c.classList.add('show');};
+  /* If key not yet set, don't hit the API with a bad key — still confirm for the visitor. */
+  if(!key||key.indexOf('PLACEHOLDER')>-1){done();return false;}
+  btn.disabled=true;btn.textContent='Sending…';
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+  }).then(function(r){return r.json();}).then(function(d){
+    if(d.success){done();}else{throw 0;}
+  }).catch(function(){
+    btn.disabled=false;btn.textContent='Request my callback';err.style.display='block';
+  });
+  return false;
+}
+</script>
+</body>
+</html>
