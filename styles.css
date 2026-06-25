@@ -307,3 +307,10 @@ html.js .reveal.in{opacity:1;transform:none}
 .intro-narrow p{margin-left:auto;margin-right:auto}
 .facts,.why-grid,.nextstep,.faqlist,.timeline,.contact-grid{max-width:1000px;margin-left:auto;margin-right:auto}
 .timeline{max-width:760px}
+
+/* ---------- photo hero (certificate pages) ---------- */
+.page-hero.haspic{background:#04101F}
+.page-hero.haspic .grid-tex{display:none}
+.page-hero .ph-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block}
+.page-hero.haspic::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,10,20,.50) 0%,rgba(3,10,20,.34) 45%,rgba(3,10,20,.88) 100%)}
+.page-hero.haspic .inner *{text-shadow:0 2px 12px rgba(0,0,0,.7),0 1px 3px rgba(0,0,0,.6)}
