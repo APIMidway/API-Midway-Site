@@ -76,6 +76,7 @@
     if(c<=3000||v<=5)return 'MVFR';
     return 'VFR';
   }
+  function loadWx(){
   try{
     fetch('https://api.weather.gov/stations/KMDW/observations/latest',{headers:{'Accept':'application/geo+json'}})
     .then(function(r){if(!r.ok)throw 0;return r.json();})
@@ -119,6 +120,9 @@
     })
     .catch(fail);
   }catch(e){fail();}
+  }
+  loadWx();
+  setInterval(loadWx, 600000); /* refresh every 10 min */
 })();
 
 /* ---------- lightbox ---------- */
