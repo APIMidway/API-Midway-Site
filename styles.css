@@ -335,3 +335,5 @@ html.js .reveal.in{opacity:1;transform:none}
 .prog-card:hover .go,.prog-card .go:hover{background:var(--horizon);color:#1a0f00;border-color:var(--horizon)}
 
 .prog-card .go{font-weight:600}
+
+.page-hero.haspic .cta-row a{text-shadow:none}
