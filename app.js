@@ -156,3 +156,20 @@ function submitLead(ev){
   });
   return false;
 }
+
+/* mobile hamburger menu */
+(function(){
+  var btn=document.getElementById('menuBtn'),mnav=document.getElementById('mnav'),back=document.getElementById('mnavBack');
+  if(!btn||!mnav)return;
+  function toggle(open){
+    var o=(open===undefined)?!mnav.classList.contains('show'):open;
+    mnav.classList.toggle('show',o);btn.classList.toggle('open',o);
+    if(back)back.classList.toggle('show',o);
+    btn.setAttribute('aria-expanded',o);mnav.setAttribute('aria-hidden',!o);
+    document.body.style.overflow=o?'hidden':'';
+  }
+  btn.addEventListener('click',function(){toggle();});
+  if(back)back.addEventListener('click',function(){toggle(false);});
+  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')toggle(false);});
+})();
