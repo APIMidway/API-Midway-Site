@@ -129,6 +129,7 @@
 (function(){
   var items=[].slice.call(document.querySelectorAll('.gal-item'));
   var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  if(!lb)return; /* no lightbox on interior pages */
   var i=0;
   function open(n){i=(n+items.length)%items.length;var it=items[i];img.src=it.getAttribute('data-src');img.alt=it.querySelector('img').alt;cap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('show');}
   function close(){lb.classList.remove('show');img.src='';}
