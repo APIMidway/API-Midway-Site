@@ -290,3 +290,20 @@ html.js .reveal.in{opacity:1;transform:none}
 .faqlist details[open] summary::after{content:'\2212'}
 .faqlist details .a{color:var(--steel);padding:0 0 20px;font-size:1rem;line-height:1.6}
 .faqlist details .a a{color:var(--horizon-bright)}
+
+/* ---------- interior page hero (centered) ---------- */
+.page-hero{position:relative;min-height:54vh;display:flex;align-items:flex-end;padding:150px 0 60px;overflow:hidden;background:linear-gradient(180deg,#050F1E 0%,#0A2440 55%,#0B2742 100%)}
+.page-hero .grid-tex{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.07;background-image:linear-gradient(var(--steel) 1px,transparent 1px),linear-gradient(90deg,var(--steel) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(75% 70% at 50% 30%,#000,transparent 78%);mask-image:radial-gradient(75% 70% at 50% 30%,#000,transparent 78%)}
+.page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(232,154,60,0) 0%,var(--horizon) 50%,rgba(232,154,60,0) 100%)}
+.page-hero .inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
+.page-hero .cta-row{justify-content:center}
+.crumb{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);margin-bottom:14px}
+.crumb a{color:var(--steel);text-decoration:none}
+.crumb a:hover{color:var(--marking)}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-0.02em;margin:12px 0 16px}
+.page-hero .lead{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--steel);max-width:640px;margin:0 auto 26px}
+/* center interior content blocks */
+.intro-narrow{margin-left:auto;margin-right:auto;text-align:center}
+.intro-narrow p{margin-left:auto;margin-right:auto}
+.facts,.why-grid,.nextstep,.faqlist,.timeline,.contact-grid{max-width:1000px;margin-left:auto;margin-right:auto}
+.timeline{max-width:760px}
