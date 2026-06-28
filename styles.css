@@ -337,3 +337,6 @@ html.js .reveal.in{opacity:1;transform:none}
 .prog-card .go{font-weight:600}
 
 .page-hero.haspic .cta-row a{text-shadow:none}
+
+.foot-fb{display:inline-flex;align-items:center;vertical-align:middle}
+.foot-fb svg{width:22px;height:22px;display:block}
