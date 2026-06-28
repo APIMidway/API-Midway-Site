@@ -60,7 +60,7 @@
   var raw=document.getElementById('wxRaw'),cat=document.getElementById('wxCat');
   function set(f,v){var el=document.querySelector('.wx-cell .v[data-f="'+f+'"]');if(el)el.textContent=v;}
   function fail(){
-    if(raw)raw.innerHTML='Live feed unavailable &mdash; <a href="https://aviationweather.gov/data/metar/?id=KMDW&hours=0" target="_blank" rel="noopener">view KMDW METAR &#8599;</a>';
+    if(raw)raw.innerHTML='Live feed unavailable. <a href="https://aviationweather.gov/data/metar/?id=KMDW&hours=0" target="_blank" rel="noopener">view KMDW METAR &#8599;</a>';
   }
   function fmtWind(dir,spd){
     if(spd==null)return '--';
