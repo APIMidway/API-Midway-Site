@@ -63,7 +63,7 @@
     if(raw)raw.innerHTML='Live feed unavailable &mdash; <a href="https://aviationweather.gov/data/metar/?id=KMDW&hours=0" target="_blank" rel="noopener">view KMDW METAR &#8599;</a>';
   }
   function fmtWind(dir,spd){
-    if(spd==null)return '—';
+    if(spd==null)return '--';
     if(spd<1)return 'Calm';
     var d=(dir==null)?'VRB':(Math.round(dir/10)*10).toString().padStart(3,'0');
     return d+'° @ '+Math.round(spd)+' kt';
@@ -148,7 +148,7 @@ function submitLead(ev){
   err.style.display='none';
   var key=form.querySelector('[name=access_key]').value;
   var done=function(){form.style.display='none';var c=document.getElementById('confirm');if(c)c.classList.add('show');};
-  /* If key not yet set, don't hit the API with a bad key — still confirm for the visitor. */
+  /* If key not yet set, don't hit the API with a bad key, still confirm for the visitor. */
   if(!key||key.indexOf('PLACEHOLDER')>-1){done();return false;}
   btn.disabled=true;btn.textContent='Sending…';
   fetch('https://api.web3forms.com/submit',{
