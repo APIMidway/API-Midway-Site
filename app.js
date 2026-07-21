@@ -19,42 +19,6 @@
   counters.forEach(function(el){cio.observe(el)});
 })();
 
-/* ---------- interactive attitude indicator ---------- */
-(function(){
-  var svg=document.getElementById('ai'),hz=document.getElementById('aiHorizon'),bk=document.getElementById('aiBank');
-  if(!svg||!hz)return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var tBank=0,tPitch=0,cBank=0,cPitch=0,active=false,last=0;
-  function setTarget(e){
-    var r=svg.getBoundingClientRect();
-    var px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
-    tBank=(px-0.5)*-44;            /* +/-22 deg */
-    tPitch=(py-0.5)*32;            /* +/-16 px  */
-    active=true;last=performance.now();
-  }
-  svg.addEventListener('mousemove',setTarget);
-  svg.addEventListener('mouseleave',function(){active=false;});
-  if(window.DeviceOrientationEvent){
-    window.addEventListener('deviceorientation',function(ev){
-      if(ev.gamma==null)return;
-      tBank=Math.max(-22,Math.min(22,ev.gamma));
-      tPitch=Math.max(-16,Math.min(16,((ev.beta||0)-20)*0.4));
-      active=true;last=performance.now();
-    });
-  }
-  function frame(ts){
-    if(!active && !reduce){ /* gentle idle sway */
-      var t=ts/1000; tBank=Math.sin(t*0.55)*7; tPitch=Math.sin(t*0.4+1)*4;
-    }
-    if(reduce){cBank=tBank=0;cPitch=tPitch=0;}
-    cBank+=(tBank-cBank)*0.09; cPitch+=(tPitch-cPitch)*0.09;
-    hz.setAttribute('transform','rotate('+cBank.toFixed(2)+' 180 176) translate(0 '+cPitch.toFixed(2)+')');
-    if(bk)bk.setAttribute('transform','rotate('+cBank.toFixed(2)+' 180 176)');
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-})();
-
 /* ---------- live KMDW weather (NWS api.weather.gov) ---------- */
 (function(){
   var raw=document.getElementById('wxRaw'),cat=document.getElementById('wxCat');

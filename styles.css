@@ -94,9 +94,8 @@ nav.top a.navlink:hover,nav.top a.navlink.active{color:var(--marking)}
 .att-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .att-copy p{color:var(--steel);margin-bottom:18px;font-size:1.05rem}
 .att-copy .tag{display:inline-block;margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--horizon);border:1px solid rgba(232,154,60,.4);padding:6px 12px;border-radius:2px}
-.att-vis{max-width:360px;width:100%;margin:0 auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
-.att-vis svg{width:100%;height:auto;display:block}
-.att-hint{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-dim);margin-top:14px}
+.att-photo{margin:0;max-width:560px;width:100%;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 48px rgba(0,0,0,.5)}
+.att-photo img{width:100%;height:auto;display:block}
 
 /* FACTS GRID */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
@@ -224,7 +223,7 @@ html.js .reveal.in{opacity:1;transform:none}
 @media(max-width:900px){
   nav.top .navlink{display:none}
   .att-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .att-vis{max-width:300px}
+  .att-photo{max-width:520px;margin:0 auto}
   .trust-grid,.facts{grid-template-columns:repeat(2,1fr)}
   .trust-grid .cell:nth-child(2){border-right:none}
   .trust-grid .cell:nth-child(1),.trust-grid .cell:nth-child(2){border-bottom:1px solid var(--line)}
@@ -340,3 +339,54 @@ html.js .reveal.in{opacity:1;transform:none}
 
 .foot-fb{display:inline-flex;align-items:center;vertical-align:middle}
 .foot-fb svg{width:22px;height:22px;display:block}
+
+/* ---------- mobile refinements, 2026-07-20 ---------- */
+
+/* Hero art direction. The hero photo is landscape 1440x884; on a portrait phone
+   object-fit:cover crops to roughly the middle 28% of the frame, which cut the
+   tail and the registration. Shift the focal point right so the aircraft reads
+   whole on every screen size. */
+@media(max-width:1024px){ .hero-photo{object-position:66% 45%} }
+@media(max-width:768px){  .hero-photo{object-position:70% 45%} }
+@media(max-width:430px){  .hero-photo{object-position:72% 44%} }
+
+/* The tie-down band: keep the whole sign in frame rather than slicing it.
+   Narrow handsets crop harder, so they need a bigger shift than tablets. */
+@media(max-width:768px){ .feature-band img{object-position:40% 55%} }
+@media(max-width:430px){ .feature-band img{object-position:28% 55%} }
+
+/* iOS Safari counts the collapsing address bar in 100vh, so a 100vh hero pushes
+   the call-to-action below the fold on first paint. svh is the visible height.
+   Declared after the vh rule so browsers without svh keep the old behaviour. */
+.hero{min-height:100svh}
+@media(max-width:768px){ .hero{min-height:92svh;padding:112px 0 72px} }
+
+/* iOS zooms the page in when a focused input is under 16px. On the lead form
+   that means the layout jumps the moment someone taps the name field. */
+@media(max-width:768px){
+  .field input,.field select,.field textarea{font-size:16px}
+}
+
+/* Headline was bottoming out at its 3rem clamp minimum and running wide on
+   narrow handsets. */
+@media(max-width:380px){
+  .hero h1{font-size:2.55rem;letter-spacing:-0.02em}
+  .hero p.sub{font-size:1.02rem}
+  .trust .num{font-size:1.72rem}
+  .trust-grid .cell{padding:24px 18px}
+}
+
+/* Guard against any single long token forcing a horizontal scrollbar. */
+html,body{overflow-x:hidden}
+h1,h2,h3,p,.lbl,.cap{overflow-wrap:break-word}
+
+/* Give the fixed call bar room so it never covers the last line of content. */
+@media(max-width:900px){ body{padding-bottom:0} .cta-band{padding-bottom:24px} }
+
+/* Lightbox on small screens: keep the close and arrow controls inside the
+   viewport and comfortably tappable. */
+@media(max-width:600px){
+  .lb-close{top:14px;right:14px;width:44px;height:44px}
+  .lb-nav{width:44px;height:44px}
+  .lb-cap{font-size:.86rem;padding:0 18px 18px}
+}
