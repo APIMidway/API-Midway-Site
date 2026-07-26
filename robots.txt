@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /syllabus/
 
 Sitemap: https://www.apischool.com/sitemap.xml
