@@ -245,6 +245,11 @@
         <div class="field"><label for="g">What's your goal?</label>
           <select id="g" name="goal"><option>Private Pilot Certificate</option><option>Instrument Rating</option><option>Commercial / Career pilot</option><option>Flight Instructor (CFI)</option><option>Not sure yet</option></select>
         </div>
+        <div class="field"><label for="h">How did you hear about us?</label>
+          <select id="h" name="heard_about"><option value="" selected>Choose one</option><option>Web search</option><option>Social media</option><option>Word of mouth</option><option>Other</option></select>
+        </div>
+        <div class="field" id="heardSearch" hidden><label for="hs">What did you search for?</label><input id="hs" name="search_terms" type="text" placeholder="e.g. flight school Chicago"></div>
+        <div class="field" id="heardReferral" hidden><label for="hr">Who referred you?</label><input id="hr" name="referred_by" type="text" placeholder="Their name"></div>
         <div class="field"><label for="m">Anything we should know?</label><textarea id="m" name="message" placeholder="Optional"></textarea></div>
         <button type="submit" class="submit" id="leadBtn">Request my callback</button>
         <div class="formnote">Or just call, we fly 7 days a week.</div>

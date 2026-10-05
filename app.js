@@ -126,6 +126,21 @@ function submitLead(ev){
   return false;
 }
 
+/* "How did you hear about us?": a web search asks what was searched, word of
+   mouth asks who referred them. Hidden fields are emptied so they never send. */
+(function(){
+  var sel=document.getElementById('h');if(!sel)return;
+  var extra={'Web search':'heardSearch','Word of mouth':'heardReferral'};
+  function show(){
+    ['heardSearch','heardReferral'].forEach(function(id){
+      var box=document.getElementById(id);if(!box)return;
+      var on=extra[sel.value]===id;box.hidden=!on;
+      var inp=box.querySelector('input');inp.disabled=!on;if(!on)inp.value='';
+    });
+  }
+  sel.addEventListener('change',show);show();
+})();
+
 /* mobile hamburger menu */
 (function(){
   var btn=document.getElementById('menuBtn'),mnav=document.getElementById('mnav'),back=document.getElementById('mnavBack');

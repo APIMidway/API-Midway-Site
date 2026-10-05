@@ -185,6 +185,7 @@ nav.top a.navlink:hover,nav.top a.navlink.active{color:var(--marking)}
 .bigphone:hover{color:var(--horizon-bright)}
 form.lead{background:var(--tarmac-2);border:1px solid var(--line);border-radius:6px;padding:34px}
 form.lead .fhead{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;margin-bottom:6px}
+.field[hidden]{display:none}
 form.lead .fsub{color:var(--steel-dim);font-size:.88rem;margin-bottom:24px}
 .field{margin-bottom:16px}
 .field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:7px}
