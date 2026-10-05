@@ -105,7 +105,12 @@
   document.addEventListener('keydown',function(e){if(!lb.classList.contains('show'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(i+1);if(e.key==='ArrowLeft')open(i-1);});
 })();
 
-/* ---------- contact form (Web3Forms -> emails apimidway@gmail.com) ---------- */
+/* ---------- contact form (Web3Forms -> emails apimidway@gmail.com) ----------
+   Each lead is sent twice: to the school's form (the access_key in the page)
+   and to a second Web3Forms form, "API Contacts - Terry", which emails the
+   owner directly (the free plan allows one recipient per form). Access keys
+   are public by design. The visitor sees the confirmation if either arrives. */
+var LEAD_COPY_KEY='6654b321-44dc-49f2-9828-eae2ca298c61';
 function submitLead(ev){
   ev.preventDefault();
   var form=ev.target,btn=document.getElementById('leadBtn'),err=document.getElementById('formErr');
@@ -115,11 +120,15 @@ function submitLead(ev){
   /* If key not yet set, don't hit the API with a bad key, still confirm for the visitor. */
   if(!key||key.indexOf('PLACEHOLDER')>-1){done();return false;}
   btn.disabled=true;btn.textContent='Sending…';
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-    body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))
-  }).then(function(r){return r.json();}).then(function(d){
-    if(d.success){done();}else{throw 0;}
+  var data=Object.fromEntries(new FormData(form).entries());
+  var send=function(k){
+    return fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify(Object.assign({},data,{access_key:k}))
+    }).then(function(r){return r.json();}).then(function(d){return !!d.success;}).catch(function(){return false;});
+  };
+  Promise.all([send(key),send(LEAD_COPY_KEY)]).then(function(r){
+    if(r[0]||r[1]){done();}else{throw 0;}
   }).catch(function(){
     btn.disabled=false;btn.textContent='Request my callback';err.style.display='block';
   });
