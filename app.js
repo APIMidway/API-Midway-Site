@@ -134,7 +134,7 @@ function submitLead(ev){
     }).then(function(r){return r.json();}).then(function(d){return !!d.success;}).catch(function(){return false;});
   };
   Promise.all([send(key),send(LEAD_COPY_KEY)]).then(function(r){
-    if(r[0]||r[1]){done();}else{throw 0;}
+    if(r[0]||r[1]){done();if(window.gtag)gtag('event','generate_lead',{form_name:'contact',heard_about:data.heard_about||''});}else{throw 0;}
   }).catch(function(){
     btn.disabled=false;btn.textContent='Request my callback';err.style.display='block';
   });
@@ -172,5 +172,12 @@ function submitLead(ev){
   mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')toggle(false);});
 })();
+
+/* Google Analytics (G-CTXV7W5JP8): count taps on any phone link as a call
+   lead. Only the page it was tapped on is sent, never the visitor's details. */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="tel:"]');
+  if(a&&window.gtag)gtag('event','click_to_call',{link_location:location.pathname});
+});
 
 /* redeploy 1782355189 */
