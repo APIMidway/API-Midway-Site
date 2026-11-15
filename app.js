@@ -95,8 +95,14 @@
   var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
   if(!lb)return; /* no lightbox on interior pages */
   var i=0;
-  function open(n){i=(n+items.length)%items.length;var it=items[i];img.src=it.getAttribute('data-src');img.alt=it.querySelector('img').alt;cap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('show');}
-  function close(){lb.classList.remove('show');img.src='';}
+  /* A tile with data-video plays in the same viewer; a photo tile shows its image. */
+  var vid=document.createElement('video');vid.className='lb-video';vid.controls=true;vid.playsInline=true;vid.muted=true;vid.loop=true;vid.hidden=true;img.parentNode.insertBefore(vid,img.nextSibling);
+  function stopVideo(){vid.pause();vid.removeAttribute('src');vid.load();vid.hidden=true;}
+  function open(n){i=(n+items.length)%items.length;var it=items[i];var v=it.getAttribute('data-video');
+    if(v){img.hidden=true;img.src='';vid.hidden=false;vid.poster=it.getAttribute('data-src')||'';vid.src=v;var p=vid.play();if(p&&p.catch)p.catch(function(){});}
+    else{stopVideo();img.hidden=false;img.src=it.getAttribute('data-src');img.alt=it.querySelector('img').alt;}
+    cap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('show');}
+  function close(){lb.classList.remove('show');img.src='';stopVideo();}
   items.forEach(function(it,n){it.addEventListener('click',function(){open(n);});});
   document.getElementById('lbClose').addEventListener('click',close);
   document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();open(i+1);});

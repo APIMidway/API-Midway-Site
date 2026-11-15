@@ -499,3 +499,11 @@ h1,h2,h3,p,.lbl,.cap{overflow-wrap:break-word}
 .promo-frame video{display:block;width:100%;height:100%}
 .promo-cap{max-width:1040px;margin:16px auto 0;text-align:center;color:var(--steel);font-size:.95rem}
 @media(max-width:520px){.promo-frame{border-radius:4px}.promo-cap{font-size:.88rem}}
+
+/* Gallery video tiles: a play badge on the tile, and the clip in the viewer */
+.gal-item .play{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(7,23,41,.72);border:1px solid rgba(232,154,60,.6);display:flex;align-items:center;justify-content:center;color:var(--horizon-bright);font-size:1.3rem;line-height:1;padding-left:4px;pointer-events:none;transition:background .2s}
+.gal-item:hover .play{background:rgba(232,154,60,.25)}
+.lb .lb-video{max-width:92vw;max-height:80vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);background:#000}
+.gal-item.wide{grid-column:span 2;aspect-ratio:auto;min-height:100%}
+.gal-item.wide img{position:absolute;inset:0}
+@media(max-width:900px){.gal-grid{grid-auto-rows:auto}.gal-item.wide{grid-column:span 2;aspect-ratio:16/9;min-height:0;width:100%}}
