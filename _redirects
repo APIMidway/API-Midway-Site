@@ -1,2 +1,11 @@
 /syllabus    https://app.apischool.com/book/  301
 /syllabus/*  https://app.apischool.com/book/  301
+
+# Old site addresses Google still crawls (Search Console, Not found, 2026-11-15)
+/private.html  /private-pilot.html  301
+/Instrumentnew.html  /instrument-rating.html  301
+/instrumentnew.html  /instrument-rating.html  301
+/careerpilot.html  /commercial-pilot.html  301
+/atp.htm  /commercial-pilot.html  301
+/contactus.html  /contact.html  301
+/a  /  301
