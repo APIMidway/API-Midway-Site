@@ -507,3 +507,8 @@ h1,h2,h3,p,.lbl,.cap{overflow-wrap:break-word}
 .gal-item.wide{grid-column:span 2;aspect-ratio:auto;min-height:100%}
 .gal-item.wide img{position:absolute;inset:0}
 @media(max-width:900px){.gal-grid{grid-auto-rows:auto}.gal-item.wide{grid-column:span 2;aspect-ratio:16/9;min-height:0;width:100%}}
+
+/* /watch: the video is the main content, so it sits high on the page */
+.watch-hero{min-height:0;padding:118px 0 20px}
+.watch-video{padding-top:22px}
+@media(max-width:720px){.watch-hero{padding:100px 0 16px}.watch-video{padding-top:16px}}
